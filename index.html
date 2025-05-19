@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>土豆的520測驗</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <!-- Loading 畫面 -->
+    <div id="loadingScreen">
+        <div class="loading-heart">🥔</div>
+        <p>正在準備驚喜中…</p>
+        <div class="progress-container">
+            <div id="progressBar"></div>
+            <div id="heartIcon">💖</div>
+        </div>
+    </div>
+
+    <!-- 首頁畫面 -->
+    <div id="startScreen">
+        <div class="startDescription">
+            <h1>🥔 土豆的520測驗 💕</h1>
+            <p>考考尼J個土豆戰士能不能通過測驗👀</p>
+            <p class="introduction">總共10道考題，以第一次玩的為主 <br>(答錯可能有懲罰歐😉)</br></p>
+            <img src="https://img1.pixhost.to/images/5722/598131926_chatgpt-image-2025330-11_37_44.png">
+        </div>
+        <button class="start-btn" onclick="startGame()">開始遊戲</button>
+    </div>
+
+    <!-- 問題畫面 -->
+    <div id="quizScreen">
+        <div class="hint" id="hint"></div>
+        <div class="question" id="questionText"></div>
+        <div class="options" id="options"></div>
+        <div id="score">目前得分：0 分</div>
+        <div class="pic" id="pic"></div>
+    </div>
+
+    <!-- 結果畫面 -->
+    <div id="resultScreen">
+        <h1>🐧 遊戲結束！🦭</h1>
+        <div id="finalScore"></div>
+        <div id="reward"></div>
+    </div>
+
+    <!-- Popup 視窗 -->
+    <div class="popup" id="popup">
+        <h2 id="popupTitle"></h2>
+        <img class="popupImage" id="popupImage" src="">
+        <button onclick="closePopup()" class="nextButton">下一題！</button>
+    </div>
+
+    <script src="/index.js"></script>
+</body>
+
+</html>
