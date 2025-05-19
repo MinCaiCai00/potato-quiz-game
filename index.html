@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <audio id="resultSound" preload="auto"></audio>
     <!-- Loading 畫面 -->
     <div id="loadingScreen">
         <div class="loading-heart">🥔</div>
@@ -50,6 +51,20 @@
         <h2 id="popupTitle"></h2>
         <img class="popupImage" id="popupImage" src="">
         <button onclick="closePopup()" class="nextButton">下一題！</button>
+    </div>
+
+    <!-- 獎勵信 -->
+    <div id="loveLetterPopup">
+        <h2 style="color: #d6336c;">💌 送給包杯的信</h2>
+        <p style="font-size: 18px; color: #333;">
+            我的包杯：<br><br>
+            謝謝尼一直在偶身邊陪伴我，<br>
+            你是我最暖的太陽 ☀️<br>
+            第一次做網頁小遊戲就獻給包杯，<br>
+            希望尼喜歡 💖<br><br>
+            520快樂~~ ✨
+        </p>
+        <button onclick="closeLoveLetter()" class="closeLoveLetterButton">關閉</button>
     </div>
 
     <script src="/index.js"></script>

@@ -180,9 +180,9 @@ img {
 .popup {
     display: none;
     position: fixed;
-    top: 50%;
+    top: 5%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     background: white;
     border: 3px solid #ccc;
     padding: 20px 8px;
@@ -200,3 +200,47 @@ img {
     margin: 0 auto;
     border-radius: 5%;
 }
+
+#loveLetterPopup {
+    display: none;
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff0f5;
+    border: 2px solid #ff69b4;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.closeLoveLetterButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+.closeLoveLetterButton:hover {
+    background-color: #8d0549df;
+}
+
+.cardButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+.cardButton:hover {
+    background-color: #8d0549df;
+}
+

@@ -164,6 +164,7 @@ const pic = document.getElementById("pic")
 const reward = document.getElementById("reward")
 const scoreDisplay = document.getElementById("score");
 const finalScore = document.getElementById("finalScore");
+const resultSound = document.getElementById("resultSound");
 
 const preloadImages = [
     "https://img1.pixhost.to/images/5722/598131926_chatgpt-image-2025330-11_37_44.png",
@@ -224,7 +225,7 @@ function preloadAllImages(callback) {
             loadedCount++;
             updateProgress();
             if (loadedCount === preloadImages.length) {
-                setTimeout(callback, 300); 
+                setTimeout(callback, 300);
             }
         };
     });
@@ -276,10 +277,16 @@ function showPopup(isCorrect, isLastQuestion) {
     if (isCorrect) {
         popupTitle.textContent = q.correctFeedback.message;
         popupImage.src = q.correctFeedback.image;
+        resultSound.src = "sounds/mixkit-small-win-2020.wav"
     } else {
         popupTitle.textContent = q.wrongFeedback.message;
         popupImage.src = q.wrongFeedback.image;
+        resultSound.src = "sounds/mixkit-losing-bleeps-2026.wav"
     }
+
+    // 播放音效
+    resultSound.currentTime = 0;
+    resultSound.play();
 
     popup.style.display = "block";
 }
@@ -323,27 +330,52 @@ function showResult() {
 
     let message = "";
     let imageUrl = "";
+    let extraButton = "";
 
     if (score >= 90) {
         message = "🎉 通過拉~！ 我們假日來做壽喜燒吧！🎉";
         imageUrl = "https://img1.pixhost.to/images/5746/598449612_-2025-05-14-223833.png";
+        resultSound.src = "sounds/mixkit-game-level-completed-2059.wav";
+        extraButton = `
+            <button class="cardButton" onclick="showLoveLetter()">
+              💌 恭喜獲得神秘卡片
+            </button>
+        `;
     } else if (score >= 60) {
         message = "痾..恭喜獲得在耳邊聽我喊土豆獎勵 🥔";
         imageUrl = "https://img1.pixhost.to/images/5746/598452954_beauty_20240721162027.jpg";
-    } else if (score >= 10) {
+        resultSound.src = "sounds/mixkit-horror-lose-2028.wav"
+    } else if (score >= 40) {
         message = "尼！我要一直喊土豆給你聽 👀";
         imageUrl = "https://img1.pixhost.to/images/5746/598453370_beauty_20240706114153.jpg";
+        resultSound.src = "sounds/mixkit-horror-lose-2028.wav"
     } else {
         message = "??? 我要在你耳邊唱甜蜜蜜 💀";
         imageUrl = "https://img1.pixhost.to/images/5746/598453542_pxl_20240720_141047304-mp-2.jpg";
+        resultSound.src = "sounds/mixkit-horror-lose-2028.wav"
     }
 
+    // 播放音效
+    resultSound.currentTime = 0;
+    resultSound.play();
+
+    // 顯示結果
     finalScore.innerHTML = `
       <h3 class="final-score">總共得了 ${score} 分</h3>
       <h2>${message}</h2>
+        ${extraButton}
+
     `;
     reward.innerHTML = `<img src=${imageUrl}>`
-    
+
+}
+
+function showLoveLetter() {
+    document.getElementById("loveLetterPopup").style.display = "block";
+}
+
+function closeLoveLetter() {
+    document.getElementById("loveLetterPopup").style.display = "none";
 }
 
 // 預設只顯示首頁畫面
